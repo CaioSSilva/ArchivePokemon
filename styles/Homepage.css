@@ -26,6 +26,10 @@ p{
 }
 
 .card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	max-width: 320px;
 	list-style: none;
 	padding: 40px;
@@ -40,14 +44,13 @@ p{
 .card::after {
 	content: "";
   display: block;
-  width: 50%;
-  height: 45%;
+  width: 180px;
+  height: 180px;
   border-radius: 100%;
   background-color: #fff;
   opacity: .7;
   position: absolute;
-  top: 15%;
-  left: 25%;
+  top: 11%;
 }
 
 .steel {
@@ -141,7 +144,7 @@ p{
 
 .card-image {
 	height: 180px;
-	position: relative;
+	width: 180px;
 	z-index: 2;
 }
 
