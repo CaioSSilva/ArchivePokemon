@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+body {
+	background: #eeeeee;
+	margin: 0;
+    padding: 0;
+	font-family: Poppins, sans-serif;
+}
+
+h1 {
+	text-align: center;
+	font-size: 45px;
+    color: #EA5D60;
+}
+
+p{
+    text-align: center;
+}
+
+.pokedex {
+    margin: 0 auto;
+    width: 90%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	padding-inline-start: 0;
+}
+
+.card {
+	list-style: none;
+	padding: 40px;
+	color: #222;
+	text-align: center;
+	border-radius: 20px;
+	position: relative;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.card::after {
+	content: "";
+  display: block;
+  width: 50%;
+  height: 45%;
+  border-radius: 100%;
+  background-color: #fff;
+  opacity: .7;
+  position: absolute;
+  top: 15%;
+  left: 25%;
+}
+
+.steel {
+	background-color: #bbd674;
+}
+
+.fire {
+	background-color: #FFA756;
+}
+
+.grass {
+	background-color: #8BBE8A;
+}
+
+.electric {
+	background-color: #F2CB55;
+}
+
+.water{
+	background-color: #58abf8;
+}
+.ice{
+	background-color: #81D8DF;
+}
+
+.ground {
+	background-color: #F78551;
+}
+
+.rock {
+	background-color: #D4C294;
+}
+
+.fairy {
+	background-color: #EBA8C3;
+}
+
+.poison {
+	background-color: #BF6E97;
+}
+
+.bug {
+	background-color: #BBD674;
+}
+
+.dragon {
+	background-color: #7383B9;
+}
+
+.psychic {
+	background-color: #FF6568;
+}
+
+.flying {
+	background-color: #83A2E3;
+}
+
+.fighting {
+	background-color: #EB4971;
+}
+
+.normal {
+	background-color: #B5B9C4;
+}
+
+.card:hover {
+	animation: bounce 0.5s linear;
+}
+.ghost{
+    background-color: #8571be;
+}
+.dark{
+    background-color: #6f6e78;
+}
+.card-title {
+	text-transform: capitalize;
+	margin-bottom: 0px;
+	font-size: 32px;
+	font-weight: normal;
+	position: relative;
+	z-index: 2;
+}
+
+.card-subtitle {
+	margin-top: 5px;
+	color: rgb(255, 255, 255);
+	font-weight: lighter;
+	position: relative;
+	z-index: 2;
+}
+
+.card-image {
+	height: 180px;
+	position: relative;
+	z-index: 2;
+}
+
+.search-menu-content{
+    margin: 10px auto;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+.search-btn{
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    background-color: #EA5D60;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-btn:hover{
+    background-color: #d45456;
+    cursor: pointer;
+}
+.search-btn img{
+    margin: 0 auto;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(2%) hue-rotate(137deg) brightness(110%) contrast(101%);
+    width: 18px;
+    height: 18px;
+}
+.search{
+    width: 90%;
+    margin: 0 auto;
+    background-color: #dfdfdf;
+    border: none;
+    height: 35px;
+    border-radius: 10px;
+    padding-left: 10px;
+    outline: none;
+}
+
+@keyframes bounce {
+	20% {
+			transform: translateY(-6px);
+	}
+	40% {
+			transform: translateY(0px);
+	}
+
+	80% {
+			transform: translateY(-2px);
+	}
+	100% {
+			transform: translateY(0);
+	}
+}
+@media screen and (max-width: 900px) {
+    .search-menu-content{
+        width: 75%;
+    }
+}
