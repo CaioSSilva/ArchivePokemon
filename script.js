@@ -1,3 +1,4 @@
+//Gerando lista de pokemons Inicial
 const getpokemonUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`
 
 const generatePokemonPromises = () => Array(100).fill().map((_,index)=>fetch(getpokemonUrl(index + 1)).then(response => response.json()))
@@ -28,7 +29,7 @@ const pokemonPomises = generatePokemonPromises()
 Promise.all(pokemonPomises).then(generateHTML).then(insertPokemons)
 
 
-
+//Funçao de pesquisa
 function search(){
     pokeName = document.querySelector('.search').value
 
@@ -47,7 +48,8 @@ function search(){
         .catch((erro) =>{
             alert("Nome ou Numero não encontrado"); 
         })
-}  
+}
+//Verifica escrita do campo de pesquisa  
 function searchVerify(){
     const campoPesquisa = document.querySelector('.search').value
     if(campoPesquisa.length == 0){
