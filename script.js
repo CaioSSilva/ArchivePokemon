@@ -32,7 +32,7 @@ Promise.all(pokemonPomises).then(generateHTML).then(insertPokemons)
 //Funçao de pesquisa
 function search(){
     pokeName = document.querySelector('.search').value
-
+    pokeName.toLowerCase()
     fetch(getpokemonUrl(pokeName))
         .then((response)=> response.json())
         .then((pokemon)=>{
