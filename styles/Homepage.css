@@ -18,7 +18,7 @@ p{
 }
 
 .pokedex {
-    margin: 0 auto;
+	margin: 0 auto;
     width: 90%;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -26,6 +26,7 @@ p{
 }
 
 .card {
+	max-width: 320px;
 	list-style: none;
 	padding: 40px;
 	color: #222;
@@ -167,7 +168,6 @@ p{
     cursor: pointer;
 }
 .search-btn img{
-    margin: 0 auto;
     filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(2%) hue-rotate(137deg) brightness(110%) contrast(101%);
     width: 18px;
     height: 18px;

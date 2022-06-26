@@ -17,7 +17,7 @@ const Elementtypes = types.map(typeinfo => typeinfo.type.name)
 )
 
 
-const insertPokemon = pokemons =>{
+const insertPokemons = pokemons =>{
     const ul = document.querySelector('[data-js="pokedex"]')
 
     ul.innerHTML = pokemons
@@ -25,4 +25,32 @@ const insertPokemon = pokemons =>{
 
 const pokemonPomises = generatePokemonPromises()
 
-Promise.all(pokemonPomises).then(generateHTML).then(insertPokemon)
+Promise.all(pokemonPomises).then(generateHTML).then(insertPokemons)
+
+
+
+function search(){
+    pokeName = document.querySelector('.search').value
+
+    fetch(getpokemonUrl(pokeName))
+        .then((response)=> response.json())
+        .then((pokemon)=>{
+            const ul = document.querySelector('[data-js="pokedex"]')
+            const Elementtypes = pokemon.types.map(typeinfo => typeinfo.type.name)
+            ul.innerHTML = `
+            <li class="card  ${Elementtypes[0]}">
+                <img class="card-image" alt="${pokemon.name}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png"/>
+                <h2 class="card-title">${pokemon.id}. ${pokemon.name}</h2>
+                <p class="card-subtitle">${Elementtypes.join(' & ')}</p>
+            </li>`
+        })
+        .catch((erro) =>{
+            alert("Nome ou Numero não encontrado"); 
+        })
+}  
+function searchVerify(){
+    const campoPesquisa = document.querySelector('.search').value
+    if(campoPesquisa.length == 0){
+        Promise.all(pokemonPomises).then(generateHTML).then(insertPokemons)
+    }
+}
