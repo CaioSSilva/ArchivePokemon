@@ -61,7 +61,12 @@ function pokeShow(id){
         .then(promises => promises.json())
         .then((pokemon) =>{
             const page = document.body
+            const statusName = pokemon.stats.map(statsinfo => statsinfo.stat.name)
+            const statusBaseExperience = pokemon.base_experience
+            const statusWeight = pokemon.weight
+            const statusBaseValue = pokemon.stats.map(statsinfo => statsinfo.base_stat)
             const Elementtypes = pokemon.types.map(typeinfo => typeinfo.type.name)
+            console.log(statusBaseValue)
             page.innerHTML = `
             <div class="pokemonPageContainer ${Elementtypes[0]}">
                 <div class="pokemon-container ${Elementtypes[0]}">
@@ -74,18 +79,52 @@ function pokeShow(id){
                     <div class="image-container">
                         <img class="card-image-solo" alt="${pokemon.name}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png"/>
                         <div class="info1-container">
-                            <p class="info-id">${'#00' + pokemon.id}</p>
+                            <p class="info-id">${'#0' + pokemon.id}</p>
                             <h1 class="info-title">${pokemon.name}</h1>
-                            <h2 class="info-element">${"Types: " + Elementtypes[0]}</h2>
+                            <h2 class="${Elementtypes[0] + '-element-container'}">${Elementtypes.join(' & ')}</h2>
                         </div>
                     </div>
                 </div>
                 <div class="other-stats-container">
-                
+                    <div class="base-status-div">
+                        <h1 class="${Elementtypes[0] + '-color'}"> Base Status</h1>
+                        <div class="status-div">
+                            <h1 class=" ${Elementtypes[0] + '-color'}">${statusName[0].toUpperCase()}</h1>
+                            <p>${statusBaseValue[0]}</p>
+                        </div>
+                        <div class="status-div">
+                            <h1 class=" ${Elementtypes[0] + '-color'}">${statusName[1].toUpperCase()}</h1>
+                            <p>${statusBaseValue[1]}</p>
+                        </div>
+                        <div class="status-div">
+                            <h1 class=" ${Elementtypes[0] + '-color'}">${statusName[2].toUpperCase()}</h1>
+                            <p>${statusBaseValue[2]}</p>
+                        </div>
+                        <div class="status-div">
+                            <h1 class=" ${Elementtypes[0] + '-color'}">${statusName[3].toUpperCase()}</h1>
+                            <p>${statusBaseValue[3]}</p>
+                        </div>
+                        <div class="status-div">
+                            <h1 class=" ${Elementtypes[0] + '-color'}">${statusName[4].toUpperCase()}</h1>
+                            <p>${statusBaseValue[4]}</p>
+                        </div>
+                    </div>
+                    <div class="pokedex-data-div">
+                        <h1 class=" ${Elementtypes[0] + '-color'}">Pokedex Data</h1>
+                        <div class="pokedex-data">
+                            <h1 class=" ${Elementtypes[0] + '-color'}">Base XP</h1>
+                            <p>${statusBaseExperience}</p>
+                        </div>
+                        <div class="pokedex-data">
+                            <h1 class=" ${Elementtypes[0] + '-color'}">Weight</h1>
+                            <p>${statusWeight}</p>
+                        </div>
+                    </div>
                 </div>
             </div>`
         });
 }
+
 //Voltar Home
 function backHome(){
     const page = document.body
