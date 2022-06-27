@@ -351,6 +351,7 @@ p{
 }
 .base-status-div{
 	width: 95%;
+	text-align: center;
 	height: min-content;
 }
 .base-status-div > h1, .pokedex-data-div > h1{
@@ -368,7 +369,6 @@ p{
 }
 .status-div h1, p, .pokedex-data h1{
 	font-size: 14px;
-	margin-left: 10px;
 }
 .pokedex-data-div{
 	width: 95%;
@@ -440,6 +440,20 @@ p{
 }
 .dark-color{
     color: #3d3c44;
+}
+.icon-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	margin-left: 0;
+}
+.icon-status{
+	width: 20px;
+	height: 20px;
+	filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(305deg) brightness(104%) contrast(101%);
 }
 @keyframes bounce {
 	20% {

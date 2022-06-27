@@ -1,7 +1,7 @@
 //Gerando lista de pokemons Inicial
 const getpokemonUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`
 
-const generatePokemonPromises = () => Array(50).fill().map((_,index)=>fetch(getpokemonUrl(index + 1)).then(response => response.json()))
+const generatePokemonPromises = () => Array(150).fill().map((_,index)=>fetch(getpokemonUrl(index + 1)).then(response => response.json()))
 
 const generateHTML = pokemons => pokemons.reduce((accumulator,{name, id, types}) => {
 
@@ -61,12 +61,10 @@ function pokeShow(id){
         .then(promises => promises.json())
         .then((pokemon) =>{
             const page = document.body
-            const statusName = pokemon.stats.map(statsinfo => statsinfo.stat.name)
             const statusBaseExperience = pokemon.base_experience
             const statusWeight = pokemon.weight
             const statusBaseValue = pokemon.stats.map(statsinfo => statsinfo.base_stat)
-            const Elementtypes = pokemon.types.map(typeinfo => typeinfo.type.name)
-            console.log(statusBaseValue)
+            const Elementtypes = pokemon.types.map(typeinfo => typeinfo.type.name) 
             page.innerHTML = `
             <div class="pokemonPageContainer ${Elementtypes[0]}">
                 <div class="pokemon-container ${Elementtypes[0]}">
@@ -87,44 +85,61 @@ function pokeShow(id){
                 </div>
                 <div class="other-stats-container">
                     <div class="base-status-div">
-                        <h1 class="${Elementtypes[0] + '-color'}"> Base Status</h1>
                         <div class="status-div">
-                            <h1 class=" ${Elementtypes[0] + '-color'}">${statusName[0].toUpperCase()}</h1>
+                            <div class=" icon-container ${Elementtypes[0] + '-element-container'}">
+                                <img class="icon-status" src="https://cdn-icons-png.flaticon.com/512/535/535234.png"/>
+                            </div>
+                            <h1 class="${Elementtypes[0] + '-color'}">HP</h1>
                             <p>${statusBaseValue[0]}</p>
                         </div>
                         <div class="status-div">
-                            <h1 class=" ${Elementtypes[0] + '-color'}">${statusName[1].toUpperCase()}</h1>
+                            <div class="  icon-container ${Elementtypes[0] + '-element-container'}">
+                                <img class="icon-status" src="https://cdn-icons-png.flaticon.com/512/842/842082.png"/>
+                            </div>
+                            <h1 class="${Elementtypes[0] + '-color'}">ATTACK</h1>
                             <p>${statusBaseValue[1]}</p>
                         </div>
                         <div class="status-div">
-                            <h1 class=" ${Elementtypes[0] + '-color'}">${statusName[2].toUpperCase()}</h1>
+                            <div class=" icon-container  ${Elementtypes[0] + '-element-container'}">
+                                <img class="icon-status" src="https://cdn-icons-png.flaticon.com/512/786/786346.png"/>
+                            </div>
+                            <h1 class="${Elementtypes[0] + '-color'}">DEFENSE</h1>
                             <p>${statusBaseValue[2]}</p>
                         </div>
                         <div class="status-div">
-                            <h1 class=" ${Elementtypes[0] + '-color'}">${statusName[3].toUpperCase()}</h1>
+                            <div class=" icon-container  ${Elementtypes[0] + '-element-container'}">
+                                <img class="icon-status" src="https://cdn-icons-png.flaticon.com/512/6997/6997647.png"/>
+                            </div>
+                            <h1 class="${Elementtypes[0] + '-color'}">SPECIAL-ATTACK</h1>
                             <p>${statusBaseValue[3]}</p>
                         </div>
                         <div class="status-div">
-                            <h1 class=" ${Elementtypes[0] + '-color'}">${statusName[4].toUpperCase()}</h1>
+                            <div class=" icon-container  ${Elementtypes[0] + '-element-container'}">
+                                <img class="icon-status" src="https://cdn-icons-png.flaticon.com/512/2919/2919703.png"/>
+                            </div>
+                            <h1 class="${Elementtypes[0] + '-color'}">SPECIAL-DEFENSE</h1>
                             <p>${statusBaseValue[4]}</p>
                         </div>
-                    </div>
-                    <div class="pokedex-data-div">
-                        <h1 class=" ${Elementtypes[0] + '-color'}">Pokedex Data</h1>
                         <div class="pokedex-data">
-                            <h1 class=" ${Elementtypes[0] + '-color'}">BASE-XP</h1>
+                            <div class=" icon-container  ${Elementtypes[0] + '-element-container'}">
+                                <img class="icon-status" src="https://cdn-icons-png.flaticon.com/512/626/626075.png"/>
+                            </div>
+                            <h1 class="${Elementtypes[0] + '-color'}">BASE-XP</h1>
                             <p>${statusBaseExperience}</p>
                         </div>
                         <div class="pokedex-data">
-                            <h1 class=" ${Elementtypes[0] + '-color'}">WEIGHT</h1>
+                            <div class=" icon-container  ${Elementtypes[0] + '-element-container'}">
+                                <img class="icon-status" src="https://cdn-icons-png.flaticon.com/512/65/65512.png"/>
+                            </div>
+                            <h1 class="${Elementtypes[0] + '-color'}">WEIGHT</h1>
                             <p>${statusWeight}</p>
                         </div>
                     </div>
                 </div>
             </div>`
+            scrollReset()
         });
 }
-
 //Voltar Home
 function backHome(){
     const page = document.body
@@ -162,4 +177,8 @@ function backHome(){
     const pokemonPomises = generatePokemonPromises()
     
     Promise.all(pokemonPomises).then(generateHTML).then(insertPokemons)
+}
+//Voltar ao topo quando carregar pokemon
+function scrollReset(){
+    window.scrollTo(0, 0);
 }
