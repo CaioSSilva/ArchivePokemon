@@ -112,11 +112,11 @@ function pokeShow(id){
                     <div class="pokedex-data-div">
                         <h1 class=" ${Elementtypes[0] + '-color'}">Pokedex Data</h1>
                         <div class="pokedex-data">
-                            <h1 class=" ${Elementtypes[0] + '-color'}">Base XP</h1>
+                            <h1 class=" ${Elementtypes[0] + '-color'}">BASE-XP</h1>
                             <p>${statusBaseExperience}</p>
                         </div>
                         <div class="pokedex-data">
-                            <h1 class=" ${Elementtypes[0] + '-color'}">Weight</h1>
+                            <h1 class=" ${Elementtypes[0] + '-color'}">WEIGHT</h1>
                             <p>${statusWeight}</p>
                         </div>
                     </div>
