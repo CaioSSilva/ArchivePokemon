@@ -11,7 +11,7 @@ const Elementtypes = types.map(typeinfo => typeinfo.type.name)
     <li class="card ${Elementtypes[0]}" onclick="pokeShow(${id})">
         <img class="card-image" alt="${name}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png"/>
         <h2 class="card-title">${id}. ${name}</h2>
-        <p class="card-subtitle">${Elementtypes.join(' & ')}</p>
+        <p class="card-subtitle ${Elementtypes[0] + '-element-container'}">${Elementtypes.join(' & ')}</p>
     </li>`
     return accumulator
     }, ''
@@ -41,7 +41,7 @@ function search(){
             <li class="card ${Elementtypes[0]}" onclick="pokeShow(${pokemon.id})">
                 <img class="card-image" alt="${pokemon.name}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png"/>
                 <h2 class="card-title">${pokemon.id}. ${pokemon.name}</h2>
-                <p class="card-subtitle">${Elementtypes.join(' & ')}</p>
+                <p class="card-subtitle ${Elementtypes[0] + '-element-container'}">${Elementtypes.join(' & ')}</p>
             </li>`
         })
         .catch((erro) =>{
@@ -147,7 +147,7 @@ function backHome(){
         <li class="card ${Elementtypes[0]}" onclick="pokeShow(${id})">
             <img class="card-image" alt="${name}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png"/>
             <h2 class="card-title">${id}. ${name}</h2>
-            <p class="card-subtitle">${Elementtypes.join(' & ')}</p>
+            <p class="card-subtitle ${Elementtypes[0] + '-element-container'}">${Elementtypes.join(' & ')}</p>
         </li>`
         return accumulator
     }, '')
