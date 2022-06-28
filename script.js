@@ -163,8 +163,8 @@ function showLoading() {
             pokemonsNumber = pokemonsNumber + 10
             const pokemonPomises = generatePokemonPromises()
             Promise.all(pokemonPomises).then(generateHTML).then(insertPokemons)
-        },300)
-    }, 1000)
+        },400)
+    }, 500)
 }
 window.addEventListener('scroll', ()=>{
     const {scrollTop, scrollHeight, clientHeight} = document.documentElement
