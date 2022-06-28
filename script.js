@@ -160,7 +160,7 @@ function showLoading() {
     setTimeout(() => {
         loading.classList.remove('active')
         setTimeout(() => {
-            pokemonsNumber = pokemonsNumber + 5
+            pokemonsNumber = pokemonsNumber + 10
             const pokemonPomises = generatePokemonPromises()
             Promise.all(pokemonPomises).then(generateHTML).then(insertPokemons)
         },300)
