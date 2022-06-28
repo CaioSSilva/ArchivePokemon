@@ -1,4 +1,4 @@
-let pokemonsNumber = 10
+let pokemonsNumber = 50
 //Gerando lista de pokemons Inicial
 const getpokemonUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`
 const generatePokemonPromises = () => Array(pokemonsNumber).fill().map((_,index)=>fetch(getpokemonUrl(index + 1)).then(response => response.json()))
