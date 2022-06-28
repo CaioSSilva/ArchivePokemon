@@ -184,81 +184,6 @@ p{
     padding-left: 10px;
     outline: none;
 }
-.pokemonPageContainer{
-	height: 100vh;
-	background-color: #fff;
-}
-.pokemon-container{
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-}
-.headerContainer{
-	padding: 5px;
-	display: flex;
-	align-items: center;
-}
-.back-button{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 30px;
-	height: 30px;
-	border: 0;
-	margin-left: 10px;
-	background-color: transparent;
-	cursor: pointer;
-}
-.pokepage-title{
-	font-size: 20px;
-	color: white;
-	text-align: center;
-	margin: 0 auto;
-	padding: 0;
-}
-.back-button-icon{
-	width: 25px;
-	height: 25px;
-	filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(289deg) brightness(102%) contrast(105%);
-}
-.image-container{
-	display: flex;
-	align-items: center;
-	margin-top: 50px;
-	margin-bottom: 10px;
-}
-.image-container::before {
-	content: "";
-	display: block;
-	width: 150px;
-	height: 150px;
-	border-radius: 100%;
-	margin-left: 10px;
-	background-color: #fff;
-	opacity: .7;
-	top: 11%;
-}
-.card-image-solo{
-	width: 150px;
-	height: 150px;
-	margin-left: 10px;
-	z-index: 1;
-	position: absolute;
-}
-.info-id{
-	font-weight: 700;
-	padding: 0;
-	font-size: 13px;
-	margin: 0;
-	text-align: start;
-	margin-left: 10px;
-}
-.info-title{
-	margin: 0;
-	font-size: 40px;
-	margin-left: 10px;
-	color: #fff;
-}
 .grass-element-container,.steel-element-container,.fire-element-container,.electric-element-container,.water-element-container,.ice-element-container,.ground-element-container,.rock-element-container,.fairy-element-container,.poison-element-container,.bug-element-container,.dragon-element-container,.psychic-element-container,.flying-element-container,.fighting-element-container,.normal-element-container,.ghost-element-container,.dark-element-container{
 	padding: 5px;
 	color: white;
@@ -336,119 +261,47 @@ p{
 .dark-element-container{
     background-color: #3d3c44;
 }
-.other-stats-container{
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
-	background-color: #fff;
-	position: absolute;
-	z-index: 1;
-}
-.base-status-div{
-	width: 95%;
-}
-.base-status-div > h1, .pokedex-data-div > h1{
-	font-size: 15px;
-}
-.status-div, .pokedex-data{
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-.status-div p{
-	text-align: center;
-	color: #000;
-}
-.status-div h1, p, .pokedex-data h1{
-	font-size: 14px;
-}
-.pokedex-data-div{
-	width: 95%;
-}
-.steel-color {
-	color: #a6d13a;
-}
-
-.fire-color {
-	color: #e0832c;
-}
-
-.grass-color {
-	color: #47bb45;
-}
-
-.electric-color {
-	color: #eebc26;
-}
-
-.water-color{
-	color: #2b81d1;
-}
-.ice-color{
-	color: #3ed4df;
-}
-
-.ground-color {
-	color: #f36727;
-}
-
-.rock-color {
-	color: #dab24d;
-}
-
-.fairy-color {
-	color: #d86291;
-}
-
-.poison-color {
-	color: #be4c85;
-}
-
-.bug-color {
-	color: #8aa83e;
-}
-
-.dragon-color{
-	color: #4b65bb;
-}
-
-.psychic-color {
-	color: #da4649;
-}
-
-.flying-color {
-	color: #4d78d6;
-}
-
-.fighting-color {
-	color: #EB4971;
-}
-
-.normal-color {
-	color: #a2a8b8;
-}
-.ghost-color{
-    color: #6f55b4;
-}
-.dark-color{
-    color: #3d3c44;
-}
-.icon-container{
+#pokeball-loading{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: 50%;
-	width: 25px;
-	height: 25px;
-	margin-left: 0;
+	width: 100%;
+	height: 4vh;
+	position: absolute;
+	z-index: 0;
 }
-.icon-status{
-	width: 20px;
-	height: 20px;
-	filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(305deg) brightness(104%) contrast(101%);
+#pokeball-loading img{
+	width: 15%;
+}
+.active{
+	display: flex;
+}
+#back-top-container{
+	display: flex;
+	justify-content: end;
+	bottom: 0;
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+}
+#back-top{
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #EA5D60;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+#back-top:hover{
+	background-color: #dd3b3e;
+}
+#back-top img{
+	width: 50%;
+	filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(289deg) brightness(102%) contrast(105%);
 }
 @keyframes bounce {
 	20% {
@@ -469,11 +322,7 @@ p{
     .search-menu-content{
         width: 45%;
     }
-	p{
-		padding-left: 5px;
-		padding-right: 5px;
-	}
-	.base-status-div{
-		width: 50%;
+	#pokeball-loading img{
+		width: 5%;
 	}
 }

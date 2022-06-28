@@ -1,7 +1,7 @@
+let pokemonsNumber = 10
 //Gerando lista de pokemons Inicial
 const getpokemonUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`
-
-const generatePokemonPromises = () => Array(50).fill().map((_,index)=>fetch(getpokemonUrl(index + 1)).then(response => response.json()))
+const generatePokemonPromises = () => Array(pokemonsNumber).fill().map((_,index)=>fetch(getpokemonUrl(index + 1)).then(response => response.json()))
 
 const generateHTML = pokemons => pokemons.reduce((accumulator,{name, id, types}) => {
 
@@ -47,6 +47,10 @@ function search(){
         .catch((erro) =>{
             alert("Nome ou Numero não encontrado"); 
         })
+        //Loading aparecendo quando não deveria
+        const loading = document.getElementById('pokeball-loading')
+        loading.style.display = 'none';
+
 }
 //Mostrando Pokemon
 function pokeShow(id){
@@ -148,4 +152,27 @@ campoPesquisa.addEventListener("keydown", (key) =>{
         search();
     }
 })
+//Loading
+function showLoading() {
+    const loading = document.getElementById('pokeball-loading')
+    loading.classList.add('active')
     
+    setTimeout(() => {
+        loading.classList.remove('active')
+        setTimeout(() => {
+            pokemonsNumber = pokemonsNumber + 10
+            const pokemonPomises = generatePokemonPromises()
+            Promise.all(pokemonPomises).then(generateHTML).then(insertPokemons)
+        },300)
+    }, 1000)
+}
+window.addEventListener('scroll', ()=>{
+    const {scrollTop, scrollHeight, clientHeight} = document.documentElement
+    if(scrollTop + clientHeight >= scrollHeight -30){
+        showLoading()
+    }
+})
+//backtop-button
+function backTop(){
+    document.documentElement.scrollTop = 0
+}

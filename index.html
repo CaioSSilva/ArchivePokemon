@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/Homepage.css">
+    <link rel="stylesheet" href="styles/PokemonPage.css">
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" type="image/x-icon">
     <title>Pokedex</title>
 </head>
@@ -15,7 +16,15 @@
         <input class="search" placeholder="What Pokémon are you looking for?"/>
         <button class="search-btn" onclick="search()"><img src="https://cdn-icons-png.flaticon.com/512/54/54481.png" alt="Pesquisar"></button>
     </div>
+    <div id="back-top-container">
+        <div id="back-top" onclick="backTop()">
+            <img src="https://cdn-icons-png.flaticon.com/512/271/271239.png" alt="">
+        </div>
+    </div>
     <ul data-js="pokedex" class="pokedex"></ul>
+    <div id="pokeball-loading">
+        <img src="https://i.pinimg.com/originals/e6/80/2d/e6802d9c0538e25efed9d1cdf3414af9.gif">
+    </div>
 </body>
 <script src="script.js"></script>
 </html>
