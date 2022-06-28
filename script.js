@@ -66,7 +66,7 @@ function pokeShow(id){
             const statusBaseValue = pokemon.stats.map(statsinfo => statsinfo.base_stat)
             const Elementtypes = pokemon.types.map(typeinfo => typeinfo.type.name) 
             page.innerHTML = `
-            <div class="pokemonPageContainer ${Elementtypes[0]}">
+            <div class="pokemonPageContainer">
                 <div class="pokemon-container ${Elementtypes[0]}">
                     <div class="headerContainer">
                         <button class="back-button" onclick="backHome()">
