@@ -160,7 +160,7 @@ function showLoading() {
     setTimeout(() => {
         loading.classList.remove('active')
         setTimeout(() => {
-            pokemonsNumber = pokemonsNumber + 1
+            pokemonsNumber = pokemonsNumber + 5
             const pokemonPomises = generatePokemonPromises()
             Promise.all(pokemonPomises).then(generateHTML).then(insertPokemons)
         },300)
@@ -168,7 +168,7 @@ function showLoading() {
 }
 window.addEventListener('scroll', ()=>{
     const {scrollTop, scrollHeight, clientHeight} = document.documentElement
-    if(scrollTop + clientHeight >= scrollHeight -30){
+    if(scrollTop + clientHeight >= scrollHeight - 80){
         showLoading()
     }
 })
