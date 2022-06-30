@@ -58,7 +58,6 @@ function pokeShow(id){
         .then(promises => promises.json())
         .then((pokemon) =>{
             const page = document.body
-            const statusWeight = pokemon.weight
             const Elementtypes = pokemon.types.map(typeinfo => typeinfo.type.name) 
             page.innerHTML = `
             <div class="pokemonPageContainer">
@@ -113,10 +112,11 @@ campoPesquisa.addEventListener("keydown", (key) =>{
 //Loading
 function showLoading() {
     const loading = document.getElementById('pokeball-loading')
-    loading.classList.add('.active')
-    
+    loading.classList.add('active')
+    loading.classList += 'active'
     setTimeout(() => {
-        loading.classList.remove('.active')
+        loading.classList.remove('active')
+        loading.classList -= 'active'
         setTimeout(() => {
             pokemonsNumber = pokemonsNumber + 6
             const pokemonPomises = generatePokemonPromises()
@@ -222,7 +222,56 @@ function baseStatus(id){
 }
 //Evolution Pokemon
 function evolution(id){
-    
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
+    .then((response) => response.json())
+    .then((pokemonSpecie) => {
+        const urlEvolution = pokemonSpecie.evolution_chain.url
+        fetch(urlEvolution)
+        .then((response) => response.json())
+        .then((pokemonChain) => {
+            const first = pokemonChain.chain.species.name
+            const second = pokemonChain.chain.evolves_to.map(secinfo => secinfo.species.name)
+            const third = pokemonChain.chain.evolves_to.map(secinfo => secinfo.evolves_to).map(evolves => evolves)
+
+            document.getElementById('about-div').innerHTML =
+            `
+            <div class="evolution-container">
+                <div id="first-div"></div>
+                <div id="second-div"></div>
+                <div id="third-div"></div>
+            </div>
+            `
+            if(first != undefined){
+                fetch(`https://pokeapi.co/api/v2/pokemon/${first}`)
+                .then((response) => response.json())
+                .then((poke) => {
+                const photo1 = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + poke.id + ".png"
+                document.getElementById('first-div').innerHTML =`<img src="${photo1}"/>
+                  <p>${first}</p>`
+                document.getElementById('first-div').classList.add('::after')
+            })
+            if(second[0] != undefined){
+                fetch(`https://pokeapi.co/api/v2/pokemon/${second[0]}`)
+                .then((response) => response.json())
+                .then((poke) => {
+                const photo2 = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + poke.id + ".png"
+                document.getElementById('second-div').innerHTML =`<img src="${photo2}"/>
+                  <p>${second[0]}</p>`
+                  document.getElementById('second-div').classList.add('::after')
+            })
+            }
+            if(third[0][0].species.name != undefined){
+                fetch(`https://pokeapi.co/api/v2/pokemon/${third[0][0].species.name}`)
+                .then((response) => response.json())
+                .then((poke) => {
+                const photo3 = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + poke.id + ".png"
+                document.getElementById('third-div').innerHTML =`<img src="${photo3}"/>
+                  <p>${third[0][0].species.name}</p>`
+                  document.getElementById('third-div').classList.add('::after')  
+                })
+            }
+        }})
+    })
 }
 //Moves Pokemon
 function moves(id){
