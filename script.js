@@ -244,7 +244,7 @@ function evolution(id){
                 fetch(`https://pokeapi.co/api/v2/pokemon/${first}`)
                 .then((response) => response.json())
                 .then((poke) => {
-                const photo1 = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + poke.id + ".png"
+                const photo1 = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/" + poke.id + ".gif"
                 document.getElementById('first-div').innerHTML =`<img src="${photo1}"/>
                   <p>${first}</p>`
             })
@@ -252,7 +252,7 @@ function evolution(id){
                 fetch(`https://pokeapi.co/api/v2/pokemon/${second[0]}`)
                 .then((response) => response.json())
                 .then((poke) => {
-                const photo2 = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + poke.id + ".png"
+                const photo2 = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/" + poke.id + ".gif"
                 document.getElementById('second-div').innerHTML =`<img src="${photo2}"/>
                   <p>${second[0]}</p>`
             })
@@ -261,7 +261,7 @@ function evolution(id){
                 fetch(`https://pokeapi.co/api/v2/pokemon/${third[0][0].species.name}`)
                 .then((response) => response.json())
                 .then((poke) => {
-                const photo3 = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + poke.id + ".png"
+                const photo3 = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/" + poke.id + ".gif"
                 document.getElementById('third-div').innerHTML =`<img src="${photo3}"/>
                   <p>${third[0][0].species.name}</p>` 
                 })

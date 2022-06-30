@@ -242,6 +242,7 @@
 .evolution-container{
 	display: flex;
 	justify-content: center;
+	gap: 40px;
 }
 #first-div, #second-div, #third-div{
 	display: flex;
@@ -250,7 +251,7 @@
 	align-items: center;
 }
 #first-div img, #second-div img, #third-div img{
-	width: 100px;
+	height: 50px;
 	z-index: 3;
 }
 @media screen and (min-width: 900px) {
@@ -262,6 +263,6 @@
 		width: 50%;
 	}
 	#first-div img, #second-div img, #third-div img{
-		width: 250px;
+		height: 70px;
 	}
 }
