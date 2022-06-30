@@ -241,9 +241,9 @@
 }
 .evolution-container{
 	display: flex;
+	justify-content: center;
 }
 #first-div, #second-div, #third-div{
-	width: 95%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -260,5 +260,8 @@
 	}
 	#about-div{
 		width: 50%;
+	}
+	#first-div img, #second-div img, #third-div img{
+		width: 250px;
 	}
 }
